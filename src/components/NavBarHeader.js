@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import logo from "../assets/logo.svg"
 import { gsap } from "gsap";
 import CustomEase from "gsap/CustomEase";
 import Cursor from "./Cursor";
@@ -92,7 +93,7 @@ const NavBarHeader = () => {
         <a href="/" id="logo" style={{ textDecoration: "none" }}>
           <Logo>
             <img
-              src="https://raw.githubusercontent.com/TejasGadi/csivitpunelogos/main/White%20logo%20CSI.svg"
+              src={logo}
               height={"60px"}
               alt=""
             />
