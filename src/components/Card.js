@@ -22,12 +22,14 @@ const Card = ({ event }) => {
             <animated.div className='cards__container' style={style}>
                 <ul className="cards">
                     <li>
-                        <a href="" className="card">
-                            <img src={urlFor(event.poster)} className="card__image" alt="" />
-                            <div className='card__info__container'>
-                                <p className='card__info'>{event.name}</p>
+                        <>
+                            <div href="" className="card">
+                                <img src={urlFor(event.poster)} className="card__image" alt="" />
+                                <div className='card__info__container'>
+                                    <p className='card__info'>{event.name}</p>
+                                </div>
                             </div>
-                        </a>
+                        </>
                     </li>
                 </ul>
             </animated.div>

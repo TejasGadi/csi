@@ -9,9 +9,9 @@ const Events = () => {
     const [eventFilter, setEventFilter] = useState(null);
 
     const handleClick = (e) => {
-        console.log(e.target.id);
         setEventFilter(e.target.id);
     }
+
     return (
         <div className='main-container'>
             <div className='header-container'>

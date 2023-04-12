@@ -6,20 +6,25 @@ import { client, urlFor } from '../client';
 const AllEvents = ({ eventFilter, setEventFilter, eventType }) => {
     const [events, setEvents] = useState(null);
 
+
     useEffect(() => {
-        setEventFilter('all');
         async function fetchAllEvents() {
-            const query = (eventType == 'Event') ? '*[_type == "event"]' : '*[_type == "event" && type == "Workshop"]';
+            let query = ""
+            if ((eventFilter == 'upcoming') || (eventFilter == 'ongoing') || (eventFilter == 'past')) {
+                query = (eventType == 'Event') ? `*[_type == "event" && eventstatus == "${eventFilter}"]` : `*[_type == "event" && type == "Workshop" && eventstatus == "${eventFilter}"]`;
+            }
+            else {
+                query = (eventType == 'Event') ? `*[_type == "event"]` : `*[_type == "event" && type == "Workshop"]`;
+            }
             const data = await client.fetch(query);
-            console.log(data);
+            console.log(query);
             setEvents(data);
         }
         fetchAllEvents();
-    }, [])
+    }, [eventFilter])
     return (
         <>
             {events && events.map((event) => {
-                console.log(event);
                 return (
                     <Link key={event._id} to={'/events/cardPage/' + event.slug.current}>
                         <Card event={event} key={event._id} />

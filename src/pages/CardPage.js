@@ -71,10 +71,9 @@ const CardPage = () => {
                     <p>Glimpses of the Event</p>
                 </div>
                 <div className="cardPage__eventImages">
-                    {specificEvent.eventimages && specificEvent.eventimages.map((eventimage) => {
-                        console.log(specificEvent);
+                    {specificEvent.eventimages && specificEvent.eventimages.map((eventimage, index) => {
                         return (
-                            <img src={urlFor(eventimage)} alt="Event Image" />
+                            <img key={index} src={urlFor(eventimage)} alt="Event Image" />
                         )
                     })}
 
