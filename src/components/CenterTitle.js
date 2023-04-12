@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import "../App.css";
 import bigCircle from "../images/circle.svg";
-import introReel from "../videos/demo.mp4";
 import playCircleContainer from "../images/play-container.svg";
 import playIcon from "../images/play.svg";
-import Video from '../videos/demo.mp4';
+import Video from '../assets/demo2.mp4';
 
 
 const CenterTitle = () => {
@@ -30,10 +29,6 @@ const CenterTitle = () => {
 
             <Container >
                 <VideoContainer>
-                    {/* <video src="https://emble.studio/media/pages/home/b42d9d9881-1631837366/10secondwebsitefinal_editbydennis.mp4" autoplay loop muted playsinline uk-cover className="uk-cover"></video> */}
-                    {/* <video autoplay loop={true}>
-                        <source src={Video} type="video/mp4"></source>
-                    </video> */}
                     <video autoPlay muted loop={true} src={Video} typeof='video/mp4'></video>
                 </VideoContainer>
                 <TitleContainer>
@@ -49,12 +44,12 @@ const CenterTitle = () => {
             <QuotePara id='quote-para'>
                 We bridge the gap between message and perception with <span style={{ color: "#E69E4C" }}>visual media</span>, persuasive narratives and iconic cinematography.
             </QuotePara>
-            <a href="">
+            {/* <a href="">
                 <PlayContainer>
                     <img className='play-circle-img' src={playCircleContainer} alt="" srcset="" />
                     <img className='play-img' src={playIcon} alt="" srcset="" />
                 </PlayContainer>
-            </a>
+            </a> */}
         </div>
     )
 }
@@ -73,6 +68,7 @@ const VideoContainer = styled.div`
                 z-index: 1;
                 width: 18%;
                 height: 32rem;
+                opacity: 0.4;
                 overflow: hidden;
                 /* padding: 2rem; */
                 /* background: #ccc; */

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Cursor = ({ cursorX, cursorY, zIndexValue }) => {
-    console.log(zIndexValue);
     return (
         <CursorContainer className='cursor' style={{ left: cursorX + 'px', top: cursorY + 'px', zIndex: { zIndexValue } }}>
 

@@ -2,8 +2,9 @@ import React from 'react';
 import '../stylesheets/Card.css';
 import { useState, useEffect } from 'react';
 import { useTransition, animated } from '@react-spring/web';
+import { urlFor } from '../client';
 
-const Card = ({ image, title, info }) => {
+const Card = ({ event }) => {
     const [isVisible, setIsVisible] = useState(false);
     const transition = useTransition(isVisible, {
         from: { x: -100, y: 800, opacity: 0 },
@@ -22,9 +23,9 @@ const Card = ({ image, title, info }) => {
                 <ul className="cards">
                     <li>
                         <a href="" className="card">
-                            <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+                            <img src={urlFor(event.poster)} className="card__image" alt="" />
                             <div className='card__info__container'>
-                                <p className='card__info'>Hello! This is a Card Component</p>
+                                <p className='card__info'>{event.name}</p>
                             </div>
                         </a>
                     </li>

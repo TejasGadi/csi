@@ -105,7 +105,7 @@ const NavBarHeader = () => {
           <a href="/">
             <h3>Home</h3>
           </a>
-          <a href="events">
+          <a href="/events">
             <h3>Events</h3>
           </a>
           <a href="/workshops">
@@ -116,30 +116,24 @@ const NavBarHeader = () => {
           </a>
         </MenuLinks>
         <Hamburger onClick={AnimateHamburger}>
-          <Line1 class="line1"></Line1>
-          <Line2 class="line2"></Line2>
+          <Line1 className="line1"></Line1>
+          <Line2 className="line2"></Line2>
         </Hamburger>
         {/* <Cursor cursorX={cursorX} cursorY={cursorY} zIndexValue={1} /> */}
       </NavHeader>
-      <NavWindow class="nav-bar">
-        <StayInContact class="contact">
+      <NavWindow className="nav-bar">
+        <StayInContact className="contact">
           <h2>MENU</h2>
         </StayInContact>
-        <NavLinks class="nav-links">
+        <NavLinks className="nav-links">
           <a href="/">
             <h3>HOME</h3>
           </a>
           <a href="/events">
-            <h3 href="/events">EVENTS</h3>
+            <h3>EVENTS</h3>
           </a>
-          <a
-            href="https://pages.razorpay.com/pl_KbWga6Klhhljbi/view"
-            target="_blank"
-          >
-            <h3 href="/registrations">REGISTRATION</h3>
-          </a>
-          <a href="/timeline">
-            <h3 href="/workshops">WORKSHOPS</h3>
+          <a href="/workshops">
+            <h3>WORKSHOPS</h3>
           </a>
           <a href="/team">
             <h3>OUR TEAM</h3>
@@ -173,6 +167,9 @@ const MenuLinks = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1000px) {
+    display: none;
+  }
   a {
     color: white;
     text-decoration: none;
@@ -307,6 +304,9 @@ const Hamburger = styled.div`
   border-radius: 50%;
   background: #e69e4c;
   text-align: center;
+  @media (max-width: 1000px) {
+    margin-right: 1rem;
+  }
 `;
 const Line1 = styled.div`
   width: 1.6rem;

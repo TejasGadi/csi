@@ -3,7 +3,7 @@ import '../stylesheets/Header.css';
 import { useState, useEffect } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
-const Header = () => {
+const Header = ({ eventType }) => {
     const [isVisible, setIsVisible] = useState(false);
     const transition = useTransition(isVisible, {
         from: { opacity: 0, transform: 'translate3d(0, -40px, 0)' },
@@ -19,8 +19,7 @@ const Header = () => {
     return (
         transition((style, item) => item && (
             <animated.p className='header' style={style}>
-                <div />
-                Our Events
+                Our {eventType}
             </animated.p>
         ))
 
