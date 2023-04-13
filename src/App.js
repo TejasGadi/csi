@@ -2,9 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import "./App.css"
 // React Router
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
+  BrowserRouter,
 } from 'react-router-dom';
 import AnimateRoutes from './components/AnimateRoutes';
 
@@ -13,9 +11,9 @@ const App = () => {
 
   return (
     <div className="">
-      <Router >
+      <BrowserRouter>
         <AnimateRoutes />
-      </Router >
+      </BrowserRouter>
     </div>
   )
 }

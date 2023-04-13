@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg"
 import { gsap } from "gsap";
 import CustomEase from "gsap/CustomEase";
 import Cursor from "./Cursor";
+import { Link } from "react-router-dom";
 
 const NavBarHeader = () => {
   // States
@@ -90,7 +91,7 @@ const NavBarHeader = () => {
   return (
     <div className="">
       <NavHeader className="nav-header">
-        <a href="/" id="logo" style={{ textDecoration: "none" }}>
+        <Link to="/" id="logo" style={{ textDecoration: "none" }}>
           <Logo>
             <img
               src={logo}
@@ -101,20 +102,20 @@ const NavBarHeader = () => {
               csi.
             </p>
           </Logo>
-        </a>
+        </Link>
         <MenuLinks className="menu-links">
-          <a href="/">
+          <Link to="/">
             <h3>Home</h3>
-          </a>
-          <a href="/events">
+          </Link>
+          <Link to="/events">
             <h3>Events</h3>
-          </a>
-          <a href="/workshops">
+          </Link>
+          <Link to="/workshops">
             <h3>Workshops</h3>
-          </a>
-          <a href="/team">
+          </Link>
+          <Link to="/team">
             <h3>Our Team</h3>
-          </a>
+          </Link>
         </MenuLinks>
         <Hamburger onClick={AnimateHamburger}>
           <Line1 className="line1"></Line1>
@@ -127,18 +128,18 @@ const NavBarHeader = () => {
           <h2>MENU</h2>
         </StayInContact>
         <NavLinks className="nav-links">
-          <a href="/">
+          <Link to="/">
             <h3>HOME</h3>
-          </a>
-          <a href="/events">
+          </Link>
+          <Link to="/events">
             <h3>EVENTS</h3>
-          </a>
-          <a href="/workshops">
+          </Link>
+          <Link to="/workshops">
             <h3>WORKSHOPS</h3>
-          </a>
-          <a href="/team">
+          </Link>
+          <Link to="/team">
             <h3>OUR TEAM</h3>
-          </a>
+          </Link>
         </NavLinks>
         <Cursor cursorX={cursorX} cursorY={cursorY} zIndexValue={2} />
       </NavWindow>

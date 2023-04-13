@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from '../pages/Home'
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 
 import Events from '../pages/Events';
 import CardPage from '../pages/CardPage';
@@ -17,49 +17,34 @@ import Team from '../pages/Team';
 import Workshops from '../pages/Workshops';
 
 const AnimateRoutes = () => {
-    let location = useLocation();
 
     return (
         <AnimatePresence>
-            <Routes location={location} key={location.pathname}>
+            <NavBarHeader />
+            <Routes>
                 <Route exact path="/"
-                    element={<>
-                        <NavBarHeader />
+                    element={
                         <Home />
-                    </>
                     }
                 />
-                <Route path='/events'
+                <Route exact path='/events'
                     element={
-                        <>
-                            <NavBarHeader />
-                            <Events />
-                        </>
+                        <Events />
                     }
                 ></Route>
-                <Route path='/workshops'
+                <Route exact path='/workshops'
                     element={
-                        <>
-                            <NavBarHeader />
-                            <Workshops />
-                        </>
+                        <Workshops />
                     }
                 ></Route>
-                <Route path='/events/cardPage/:slug'
+                <Route exact path='/events/cardPage/:slug'
                     element={
-                        <>
-                            <NavBarHeader />
-                            <CardPage />
-                        </>
+                        <CardPage />
                     }
                 ></Route>
-                <Route path='/team'
+                <Route exact path='/team'
                     element={
-                        <>
-                            <NavBarHeader />
-                            <Team />
-                        </>
-                    }
+                        <Team />}
                 ></Route>
             </Routes>
         </AnimatePresence >
