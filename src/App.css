@@ -90,3 +90,18 @@
   height: calc(1px + 0.6vw);
   background-color: #E69E4C;
 }
+
+.vit_logo {
+  height: auto;
+  width: 500px;
+  text-align: center;
+}
+
+.quote-para {
+  margin-top: -35rem;
+  display: flex;
+
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}

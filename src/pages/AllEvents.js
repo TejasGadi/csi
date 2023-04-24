@@ -11,17 +11,23 @@ const AllEvents = ({ eventFilter, setEventFilter, eventType }) => {
         async function fetchAllEvents() {
             let query = ""
             if ((eventFilter == 'upcoming') || (eventFilter == 'ongoing') || (eventFilter == 'past')) {
-                query = (eventType == 'Event') ? `*[_type == "event" && eventstatus == "${eventFilter}"]` : `*[_type == "event" && type == "Workshop" && eventstatus == "${eventFilter}"]`;
+                query = (eventType == 'All') ? `*[_type == "event" && eventstatus == "${eventFilter}"]` : `*[_type == "event" && type == "${eventType}" && eventstatus == "${eventFilter}"]`;
             }
             else {
-                query = (eventType == 'Event') ? `*[_type == "event"]` : `*[_type == "event" && type == "Workshop"]`;
+                query = (eventType == 'All') ? `*[_type == "event"]` : `*[_type == "event" && type == "${eventType}"]`;
             }
+            // if ((eventFilter == 'upcoming') || (eventFilter == 'ongoing') || (eventFilter == 'past')) {
+            //     query = (eventType == 'Event') ? `*[_type == "event" && eventstatus == "${eventFilter}"]` : `*[_type == "event" && type == "Workshop" && eventstatus == "${eventFilter}"]`;
+            // }
+            // else {
+            //     query = (eventType == 'Event') ? `*[_type == "event"]` : `*[_type == "event" && type == "Workshop"]`;
+            // }
             const data = await client.fetch(query);
             console.log(query);
             setEvents(data);
         }
         fetchAllEvents();
-    }, [eventFilter])
+    }, [eventFilter, eventType])
     return (
         <>
             {events && events.map((event) => {

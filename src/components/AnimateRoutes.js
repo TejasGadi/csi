@@ -20,8 +20,8 @@ const AnimateRoutes = () => {
 
     return (
         <AnimatePresence>
-            <NavBarHeader />
-            <Routes>
+            <NavBarHeader key={1} />
+            <Routes key={2}>
                 <Route exact path="/"
                     element={
                         <Home />
@@ -32,11 +32,6 @@ const AnimateRoutes = () => {
                         <Events />
                     }
                 ></Route>
-                <Route exact path='/workshops'
-                    element={
-                        <Workshops />
-                    }
-                ></Route>
                 <Route exact path='/events/cardPage/:slug'
                     element={
                         <CardPage />
@@ -44,7 +39,8 @@ const AnimateRoutes = () => {
                 ></Route>
                 <Route exact path='/team'
                     element={
-                        <Team />}
+                        <Team />
+                    }
                 ></Route>
             </Routes>
         </AnimatePresence >

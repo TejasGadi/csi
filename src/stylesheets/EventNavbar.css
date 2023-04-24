@@ -27,6 +27,20 @@
 
 }
 
+.event-navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.event-type-dropdown {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
 .event-navbar span {
     margin: 0 70px 0 70px;
     font-family: 'Montserrat', sans-serif;

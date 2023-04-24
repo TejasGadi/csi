@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
 
-const EventNavbar = ({ handleClick }) => {
+const EventNavbar = ({ handleClick, handleClickEventType }) => {
     const [isVisible, setIsVisible] = useState(false);
     const transition = useTransition(isVisible, {
         from: { opacity: 0, transform: 'translate3d(0, -40px, 0)' },
@@ -20,15 +20,26 @@ const EventNavbar = ({ handleClick }) => {
     }, [isVisible])
     return (
         transition((style, item) => item && (
-            <animated.div className="event-navbar" style={style}>
-                <span id="all" onClick={handleClick} >All</span>
-                <div className="vertical" />
-                <span id="upcoming" onClick={handleClick}>Upcoming</span>
-                <div className="vertical" />
-                <span id="ongoing" onClick={handleClick}>Ongoing</span>
-                <div className="vertical" />
-                <span id="past" onClick={handleClick}>Past</span>
-            </animated.div>
+            <div className="event-navbar-container">
+                <animated.div className="event-navbar" style={style}>
+                    <span id="all" onClick={handleClick} >All</span>
+                    <div className="vertical" />
+                    <span id="upcoming" onClick={handleClick}>Upcoming</span>
+                    <div className="vertical" />
+                    <span id="ongoing" onClick={handleClick}>Ongoing</span>
+                    <div className="vertical" />
+                    <span id="past" onClick={handleClick}>Past</span>
+                </animated.div>
+                <animated.div className="" style={style}>
+                    <select onChange={handleClickEventType} className='event-type-dropdown' name="eventTypes" id="eventTypes">
+                        <option value="All" defaultValue>All</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="TechTalk">TechTalk</option>
+                        <option value="Seminar">Seminar</option>
+                    </select>
+                </animated.div>
+
+            </div>
         )))
 }
 export default EventNavbar;

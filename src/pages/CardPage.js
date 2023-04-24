@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useTransition, animated } from '@react-spring/web';
 import { useEffect, useState } from 'react';
 import { client, urlFor } from '../client';
+import Footer from '../components/Footer';
 
 const CardPage = () => {
     const [specificEvent, setSpecificEvent] = useState(null);
@@ -78,6 +79,7 @@ const CardPage = () => {
                     })}
 
                 </div>
+                <Footer />
             </animated.div>
         ))
 
