@@ -11,13 +11,17 @@ const NavBarHeader = () => {
   // States
   const [cursorX, setCursorX] = useState();
   const [cursorY, setCursorY] = useState();
-  let location = useLocation().pathname;
+  const [location, setLocation] = useState('HOME');
 
   window.addEventListener("mousemove", (e) => {
     setCursorX(e.pageX);
     setCursorY(e.pageY);
   });
 
+  const locationHandler = (e) => {
+    let randomNumber = Math.random();
+    setLocation(randomNumber);
+  }
 
   const AnimateHamburger = ({ currentTarget }) => {
     const line1 = currentTarget.children[0];
@@ -179,13 +183,13 @@ const NavBarHeader = () => {
         </StayInContact>
         <NavLinks className="nav-links">
           <Link to="/">
-            <h3>HOME</h3>
+            <h3 onClick={locationHandler}>HOME</h3>
           </Link>
           <Link to="/events">
-            <h3>EVENTS</h3>
+            <h3 onClick={locationHandler}>EVENTS</h3>
           </Link>
           <Link to="/team">
-            <h3>OUR TEAM</h3>
+            <h3 onClick={locationHandler}>OUR TEAM</h3>
           </Link>
         </NavLinks>
         <Footer />
@@ -246,7 +250,7 @@ const NavWindow = styled.nav`
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: transparent;
   display: flex;
   justify-content: space-around;
